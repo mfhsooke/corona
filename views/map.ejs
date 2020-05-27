@@ -1,40 +1,12 @@
 <!doctype html>
 <html lang="ko">
   <%- include ('template/head') %>
-  <body class="text-center">
+  <body class="text-center" style="height: auto;">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
       <%- include ('template/header') %>
-  <main role="main" class="inner cover">
-    <div class="box">
-        <p>대한민국 현황</p>
-        <li>
-          확진환자
-          <br>
-          <span id="korea1" style="font-weight: bold;"></span><br>
-          <span id="korea1_1" style="font-size: 12px;"></span>
-        </li>
-
-        <li style="border-left: 1px solid #D8D8D8;">
-          격리해제
-          <br>
-          <span id="korea2" style="font-weight: bold;"></span>
-        </li>
-
-        <li style="border-left: 1px solid #D8D8D8;">
-          사망자
-          <br>
-          <span id="korea3" style="font-weight: bold;"></span>
-        </li>
-
-        <li style="border-left: 1px solid #D8D8D8;">발생률(*)
-          <br>
-          <span id="korea4" style="font-weight: bold;"></span>
-        </li>
-    </div>
-    <p style="font-size:13px">&nbsp발생률(*) 인구 10만 명당 (지역별 인구 출처 : 행정안전부, 주민등록인구현황 (’20.1월 기준))</p>
-
+  <main role="main" class="inner cover" style="text-shadow: none;">
     <div class="tooltiptext" id="tooltip" style="text-shadow: none; text-align: center;">Tooltip text</div>
-    <svg onmousemove="handleMouseMove(event)" viewBox="-100 100 640 750" 
+    <svg onmousemove="handleMouseMove(event)" viewBox="-100 100 640 750" style="margin-top: 30px;"
     preserveAspectRatio="xMaxYMax" xmlns="http://www.w3.org/2000/svg" 
     xmlns:amcharts="http://amcharts.com/ammap" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
 	  <defs>
@@ -65,6 +37,7 @@
     </g>
     </svg>
 
+    <p style="font-size:13px">&nbsp발생률(*) 인구 10만 명당 (지역별 인구 출처 : 행정안전부, 주민등록인구현황 (’20.1월 기준))</p>
     <div class="container">
     <div class="col-md-4">
       <div class="card">
@@ -290,12 +263,6 @@
             dataType: "json",
             success: function (data) {
               var ddata=JSON.parse(data);
-
-              document.getElementById("korea1").innerHTML=ddata.korea.totalCase;
-              document.getElementById("korea1_1").innerHTML="전일대비(+"+ddata.korea.newCase+")";
-              document.getElementById("korea2").innerHTML=ddata.korea.recovered;
-              document.getElementById("korea3").innerHTML=ddata.korea.death;
-              document.getElementById("korea4").innerHTML=ddata.korea.percentage;
 
              document.getElementById("seoul").innerHTML="확진환자: "+ddata.seoul.totalCase+"<br>전일대비 증감: "+ddata.seoul.newCase
              +"<br>격리해제: "+ddata.seoul.recovered+"<br>사망자: "+ddata.seoul.death+"<br>발생률(*): "+ddata.seoul.percentage;
