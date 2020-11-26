@@ -21,7 +21,7 @@
 
                 <div id="main" class="col-sm-8 col-sm-offset-2">
 
-                    <div id="dayh1">11월 26일 국내 현황 (11.26. 00시 기준)</div>
+                    <div id="date"></div>
                     <div id="form">
                         <p>확진환자</p>
                         <span id="totalinfected" style="font-weight: bold;"></span>
@@ -75,6 +75,11 @@
         document.getElementById("fromdomestic").innerHTML = ddata.korea.newCcase;
       }
     });
+
+    let today=new Date();
+    let month=today.getMonth()+1;
+    let date=today.getDate();
+    document.getElementById("date").innerHTML = month+"월 "+date+"일 국내 현황 ("+month+"."+date+". 00시 기준)";
   </script>
 </body>
 </html>
