@@ -1,92 +1,65 @@
-<!doctype html>
-<html lang="ko">
-<%- include ('template/head') %>
-<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
-<body class="text-center" style="height: auto;">
-  <div class="cover-container d-flex w-100 h-50 p-3 mx-auto flex-column">
-    <header class="masthead mb-auto">
-      <div class="inner">
-        <h3 class="masthead-brand">Corona</h3>
-        <nav class="nav nav-masthead justify-content-center">
-          <a class="nav-link active" href="/">Home</a>
-          <a class="nav-link" href="/chart">Chart</a>
-          <a class="nav-link" href="/map">Map</a>
-          <a class="nav-link" href="/mask">Mask</a>
-        </nav>
-      </div>
-    </header>
+<html lang="en">
+<head>
+    <%- include ('template/head') %>
+    <%- include ('template/header') %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+</head>
+<body>
 
-    <main role="main" class="inner cover" style="text-shadow: none;">
-      <div class="box">
-        <p>대한민국 현황</p>
-        <li>
-          확진환자
-          <br>
-          <span id="totalinfected" style="font-weight: bold;"></span><br>
-          <span id="newinfected" style="font-size: 12px;"></span>
-        </li>
+    <div id="container">
+        <div id="home">
+            <div class="row">
+                <div id="info" class="col-sm-4   col-sm-offset-2">
+                 <div id="h1">코로나바이러스감염증-19</div>
+                 2019년 12월 중국 우한에서 처음 발생한 이후 중국 전역과 전 세계로 확산된, 새로운 유형의 코로나바이러스(SARS-CoV-2)에 의한 호흡기 감염질환이다. 코로나바이러스감염증-19는 감염자의 비말(침방울)이 호흡기나 눈·코·입의 점막으로 침투될 때 전염된다. 감염되면 약 2~14일(추정)의 잠복기를 거친 뒤 발열(37.5도) 및 기침이나 호흡곤란 등 호흡기 증상, 폐렴이 주증상으로 나타나지만 무증상 감염 사례 빈도도 높게 나오고 있다.
+                </div>
+                <div class="col-sm-4">
+                  <img class="home-img" src="../img/doctor.svg">
+                </div>
 
-        <li style="border-left: 1px solid #D8D8D8;">
-          격리해제
-          <br>
-          <span id="recoveredNum" style="font-weight: bold;"></span>
-        </li>
+                <div id="main" class="col-sm-8 col-sm-offset-2">
 
-        <li style="border-left: 1px solid #D8D8D8;">
-          사망자
-          <br>
-          <span id="deathNum" style="font-weight: bold;"></span>
-        </li>
+                    <div id="dayh1">11월 26일 국내 현황 (11.26. 00시 기준)</div>
+                    <div id="form">
+                        <p>확진환자</p>
+                        <span id="totalinfected" style="font-weight: bold;"></span>
+                        <span id="newinfected" style="font-weight: bold;"></span>
+                    </div>
 
-        <li style="border-left: 1px solid #D8D8D8;">
-          발생률(*)
-          <br>
-          <span id="percentage" style="font-weight: bold;"></span>
-        </li>
+                    <div id="form">
+                        <p>격리해제</p>
+                        <span id="recoveredNum" style="font-weight: bold;"></span>
+                    </div>
 
-        <li style="border-left: 1px solid #D8D8D8;">
-          해외 유입
-          <br>
-          <span id="fromforeign" style="font-weight: bold;"></span>
-        </li>
+                    <div id="form">
+                        <p>사망</p>
+                        <span id="deathNum" style="font-weight: bold;"></span>
+                    </div>
 
-        <li style="border-left: 1px solid #D8D8D8;">
-          국내 발생
-          <br>
-          <span id="fromdomestic" style="font-weight: bold;"></span>
-        </li>
-      </div>
-    <p style="font-size:13px">&nbsp발생률(*) 인구 10만 명당 (지역별 인구 출처 : 행정안전부, 주민등록인구현황 (’20.1월 기준))</p>
-        
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-            <img style="width:100%; height:100%;" src="https://postfiles.pstatic.net/MjAyMDA2MTJfMTQ5/MDAxNTkxOTIxNzQzOTEx.8hbikb4g82GV1Cb88GxRGq3MISZ_29Xh9HCopVHKZZsg.DVPA9tL69imNb-XED-4DRoV1uxY8WC69iNk-Fc6OQ_8g.JPEG.mfhsooke/0316_7%ED%8C%90%ED%8F%AC%EC%8A%A4%ED%84%B0_%ED%96%89%EB%8F%99%EC%88%98%EC%B9%99(A4).jpg?type=w966" alt="">
+                    <div id="form" style="background-color: rgb(248, 209, 209); color:rgb(211, 57, 57);">
+                        <p>국내발생</p>
+                        <span id="fromdomestic" style="font-weight: bold;"></span>
+                    </div>
+
+                    <div id="form" style="background-color:  rgb(248, 209, 209); color:rgb(211, 57, 57);">
+                        <p>해외유입</p>
+                        <span id="fromforeign" style="font-weight: bold;"></span>
+                    </div>
+                
+                </div>
+
+            </div>
         </div>
-        <div class="swiper-slide">
-          <img style="width:100%; height:100%;" src="https://postfiles.pstatic.net/MjAyMDA2MTJfMTI5/MDAxNTkxOTIxODQ2Mzcz.imc2fxTP-S02MhQ4eSqK7NLD8FjcCybPZTm5dEgY2cIg.XI7fYV3VsBxUwYlUG7oTJyOuppgHC51dWgEQTXduhx0g.JPEG.mfhsooke/%EC%98%AC%EB%B0%94%EB%A5%B8_%EB%A7%88%EC%8A%A4%ED%81%AC_%EC%B0%A9%EC%9A%A9%EB%B2%95_%ED%95%9C%EA%B5%AD%EC%96%B4.jpg?type=w966" alt="">
-        </div>
-        <div class="swiper-slide">
-            <img style="width:100%; height:100%;" src="https://postfiles.pstatic.net/MjAyMDA2MTJfMjUy/MDAxNTkxOTIxODQ5MjI5.bTO7jMLJvk8rcRrUCguAox267edFlSSby_FCVzCCfmcg.e1WIaYDK_tr_mtiZp1dTFslgy-eUQoA5fzsOu11tkpkg.JPEG.mfhsooke/0316_%EA%B5%AD%EB%AF%BC%EC%88%98%EC%B9%99_%EB%85%B8%EC%9D%B8(A4).jpg?type=w966" alt="">
-        </div>
-        <div class="swiper-slide">
-          <img style="width:100%; height:100%;" src="https://postfiles.pstatic.net/MjAyMDA2MTJfMjMy/MDAxNTkxOTIxODUxOTI5.mSPjd80m121DYh4QehDSF6Pp8u9GpWtVxBsqL7oSqHEg.Qdh09Jj6mK4X-34dDgws-VLIxXkhmWFfrKe3IoeDP-Eg.JPEG.mfhsooke/0404_%EC%BD%94%EB%A1%9C%EB%82%9819_%EC%82%AC%ED%9A%8C%EC%A0%81_%EA%B1%B0%EB%A6%AC_%EB%91%90%EA%B8%B0_%ED%8F%AC%EC%8A%A4%ED%84%B0_%ED%95%9C%EA%B5%AD%EC%96%B4.jpg?type=w966" alt="">
-      </div>
- 
-  
-      </div>
-        <!-- If we need pagination -->
-        <div class="swiper-pagination"></div>
-  
-        <!-- If we need navigation buttons -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
 
-        <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+</div>
+</body>
+</html>
 
-    
-    </main>
-  </div>
+
+
+
   <script>
     $.ajax({
       url: "/getCountryData",
@@ -94,24 +67,14 @@
       dataType: "json",
       success: function (data) {
         var ddata = JSON.parse(data);
-
         document.getElementById("totalinfected").innerHTML = ddata.korea.totalCase;
-        document.getElementById("newinfected").innerHTML = "전일대비(+"+ddata.korea.newCase+")"
+        document.getElementById("newinfected").innerHTML = "(+"+ddata.korea.newCase+")"
         document.getElementById("recoveredNum").innerHTML = ddata.korea.recovered;
         document.getElementById("deathNum").innerHTML = ddata.korea.death;
-        document.getElementById("percentage").innerHTML = ddata.korea.percentage;
         document.getElementById("fromforeign").innerHTML = ddata.korea.newFcase;
         document.getElementById("fromdomestic").innerHTML = ddata.korea.newCcase;
       }
     });
-
-    var mySwiper = new Swiper('.swiper-container', {
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      }
-    });
-
   </script>
 </body>
 </html>

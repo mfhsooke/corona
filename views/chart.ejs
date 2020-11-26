@@ -1,28 +1,30 @@
 <!doctype html>
 <html lang="ko">
 <%- include ('template/head') %>
+<%- include ('template/header') %>
 
-<body class="text-center">
-    <div class="cover-container d-flex w-100 h-50 p-3 mx-auto flex-column">
-        <%- include ('template/header') %>
-        <main role="main" class="inner cover "><br><br><br>
-            <ul class="row d-flex justify-content-center" style="border:1px solid bold">
-                <li id="decide" class="active col-md-3" style="list-style-type: none" onclick="changeChart()">
+<body class="text-center" style="background:#F9FBFD;">
+
+        <div id="container" style="margin-top:170px;">
+            <div id="chartwrap">
+            <ul>
+                <li id="decide" class="active col-md-3" style="list-style-type: none; font-weight: bold;" onclick="changeChart()">
                     확진자
                 </li>
-                <li id="death" class="col-md-3" style="list-style-type: none" onclick="changeChart()">
+                <li id="death" class="col-md-3" style="list-style-type: none; font-weight: bold;" onclick="changeChart()">
                     사망자</li>
-                <li id="clean" class="col-md-3" style="list-style-type: none" onclick="changeChart()">
+                <li id="clean" class="col-md-3" style="list-style-type: none; font-weight: bold;" onclick="changeChart()">
                     격리해제
                 </li>
-                <li id="exam" class="col-md-3" style="list-style-type: none" onclick="changeChart()">
+                <li id="exam" class="col-md-3" style="list-style-type: none; font-weight: bold;" onclick="changeChart()">
                     검사진행</li>
             </ul>
             <br>
             <div class="container">
                 <canvas id="myChart"></canvas>
             </div>
-        </main>
+        </div>
+    </div>
         <%- include ('template/footer') %>
     </div>
     <script>
@@ -66,7 +68,7 @@
 
                         {
                             label: string,
-                            borderColor: 'yellow',
+                            borderColor: '#118AC9',
                             data: person
                         }
                     ]
@@ -134,7 +136,7 @@
             });
         }); 
     </script>
-    <a href = "CoronaData.xlsx" download>chartdata</a>
+    <a href="CoronaData.xlsx" download>chartdata</a>
 </body>
 
 </html>

@@ -1,74 +1,19 @@
+li{
+    cursor: pointer;
+    color:#fff;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
 li:active {
-    color: yellow;
+    color:#118AC9;
 }
 
 .active {
-    color: yellow;
+    color:#118AC9;
 }
 
-.box{
-    display: inline-block;
-    width: 100%;
-    background: #fff;
-    color: #333;
-    border-radius: 5px;
-    margin-top: 60px;
-}
 
-.box > p{
-    font-weight: bold;
-    border-radius: 5px 5px 0 0;
-    background-color: #F7F7F7;
-    border-bottom: 1px solid #D8D8D8;
-    padding: 12px 0;
-    margin-bottom: 0;
-}
-
-.box > li:nth-child(2){
-    border-radius: 0 0 0 15px;
-}
-
-.box > li:last-child{
-    border-radius: 0 0 15px 0;
-}
-
-.box > li{
-    width: 16.6%;
-    height: 100px;
-    text-align: center;
-    float: left;
-    padding: 13px 8px 16px;
-    box-sizing: border-box;
-    background: #fff;
-    list-style: none;
-}
-
-@media screen and (max-width:767px){
-.box > li:nth-child(4) {
-    border-top: 1px solid #D8D8D8;
-    }
-}
-@media screen and (max-width:767px){
-    .box > li:nth-child(5) {
-        border-top: 1px solid #D8D8D8;
-        }
-    }
-@media screen and (max-width:767px){
-    .box > li:nth-child(6) {
-        border-top: 1px solid #D8D8D8;
-        border-radius: 0 0 0 15px;
-        }
-    }
-@media screen and (max-width:767px){
-.box > li:last-child {
-    border-top: 1px solid #D8D8D8;
-    }
-}
-@media screen and (max-width:767px){
-    .box > li{
-        width:50%
-    }
-}
 
 .land
 {
@@ -78,23 +23,19 @@ li:active {
     stroke-width:1;
 }
 
-#서울,#경기,#충남,#경남,#부산{
+#충남,#경남,#부산,#인천,#강원,#충북,#대전,#광주,#울산,#세종,#전북,#전남{
 fill:#B2E1FF;
 }
 
-#경북{
+#경기,#경북{
 fill:#15A8DE;
 }
 
-#대구{
+#서울,#대구{
 fill:#118AC9;
 }
 
-#인천,#강원,#충북,#대전,#광주,#울산{
-fill: #BFBFBF;
-}
-
-#세종,#전북,#전남,#제주{
+#제주{
 fill: #EAECEB;
 }
 
@@ -140,3 +81,13 @@ display: initial;
   color: #333;
   font-size: 14.7px;
  }
+
+ /*GLOBALS*/
+*{margin:0; padding:0; list-style:none;}
+a{text-decoration:none;	color:#666;}
+a:hover{color:#1bc1a3;}
+body, hmtl{background: #ecf0f1; font-family: 'Anton', sans-serif;}
+
+
+
+

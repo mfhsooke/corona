@@ -1,12 +1,20 @@
 <!doctype html>
-<html lang="ko">
+<html lang="ko" style="overflow-y:scroll;">
   <%- include ('template/head') %>
-  <body class="text-center" style="height: auto;">
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-      <%- include ('template/header') %>
-  <main role="main" class="inner cover" style="text-shadow: none;">
+  <%- include ('template/header') %>
+  <body class="text-center" style="background:#F9FBFD;">
+  <div id="container" style="margin-top:130px;">
+
+    <div id="map" style="
+    position: relative;
+    max-width:1200px;
+    margin-top: 130px;
+    margin:0 auto;
+    border-radius: 15px;
+    box-sizing: border-box;">
     <div class="tooltiptext" id="tooltip" style="text-shadow: none; text-align: center;">Tooltip text</div>
-    <svg onmousemove="handleMouseMove(event)" viewBox="-100 100 640 750" style="margin-top: 30px;"
+    <div class="col-md-5 col-md-offset-1" style="margin-right:50px;">
+    <svg onmousemove="handleMouseMove(event)" viewBox="0 70 500 750" style="margin-top: -30px;"
     preserveAspectRatio="xMaxYMax" xmlns="http://www.w3.org/2000/svg" 
     xmlns:amcharts="http://amcharts.com/ammap" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
 	  <defs>
@@ -36,9 +44,51 @@
 		  <path id="세종" title="Sejong" class="land" d="M175.795,394.447L173.104,392.833L171.625,391.218L169.069,390.411L166.378,391.488L165.975,393.237L167.05,395.254L167.589,397.272L167.858,400.367L167.186,402.788L167.454,406.151L167.589,409.649L167.589,412.744L166.512,415.165L166.647,417.184L168.53,419.739L171.221,421.22L172.566,425.121L172.835,427.946L172.701,431.982L173.912,435.076L175.661,436.422L177.363,438.474L179.543,435.981L179.232,427.262L186.083,425.082L187.037,418.965L186.421,418.105L185.315,418.286L184.738,419.067L186.6,412.981L185.522,411.841L186.44,408.566L183.107,408.37L182.657,407.021L182.657,404.218L179.854,400.792L182.035,400.169L182.346,397.366L180.789,395.187L178.351,395.389z"/>
     </g>
     </svg>
+  </div>
 
-    <p style="font-size:13px">&nbsp발생률(*) 인구 10만 명당 (지역별 인구 출처 : 행정안전부, 주민등록인구현황 (’20.1월 기준))</p>
-    <div class="container">
+  <style>
+    .arrow_box {
+      background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+    color: #fff;
+    padding: 55px 20px 55px 20px;
+    border-radius: 5rem;
+    top: 135px;
+    right: 15px;
+    width:390px;
+    height:200px;
+    font-size: 12pt;
+    font-weight: bold;
+    box-shadow: 2px 2px 3px #d1d1d1;
+    z-index: -1;
+    margin-top:60px;
+    margin-bottom: 50px;
+}
+.arrow_box:after {
+    transform: rotate(45deg);
+    left: 251px;
+    border: solid transparent;
+    content: " ";
+    top:32%;
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(56, 77, 157, 0);
+    border-bottom-color: #B7DDFC;
+    border-width: 16px;
+    margin-left: -20px;
+}
+
+  </style>
+  <div class="col-md-5" style="top:20%; height:740px;">
+    <div class="arrow_box">
+    시도별 현황 지도와 정보입니다.<br>
+    해당 지역에 마우스를 올리면 누적 확진 환자와 전일대비 증감 수를 확인할 수 있으며 아래에 더 보기를 클릭하면 자세한 현황을 볼 수 있습니다.<br> 
+    
+  </div>
+    <img class="info-img" src="../img/info.svg">
+  </div>
+
     <div class="col-md-4">
       <div class="card">
         <div class="card-header">
@@ -46,7 +96,7 @@
         </div>
         <div class="card-body">
           <p id="seoul" class="card-text"></p>
-          <a href="http://www.seoul.go.kr/coronaV/coronaStatus.do" target="_blank" class="btn btn-primary btn-sm">더보기</a>
+          <a href="http://www.seoul.go.kr/coronaV/coronaStatus.do" target="_blank" class="button">더보기</a>
         </div>
       </div>
     </div>
@@ -58,7 +108,7 @@
         </div>
         <div class="card-body">
           <p id="busan" class="card-text"></p>
-          <a href="http://www.busan.go.kr/corona19/index" target="_blank" class="btn btn-primary btn-sm">더보기</a>
+          <a href="http://www.busan.go.kr/corona19/index" target="_blank" class="button">더보기</a>
         </div>
       </div>
     </div>
@@ -70,7 +120,7 @@
         </div>
         <div class="card-body">
           <p id="daegu" class="card-text"></p>
-          <a href="http://www.daegu.go.kr/" target="_blank" class="btn btn-primary btn-sm">더보기</a>
+          <a href="http://www.daegu.go.kr/" target="_blank" class="button">더보기</a>
         </div>
       </div>
     </div>
@@ -82,7 +132,7 @@
         </div>
         <div class="card-body">
           <p id="incheon" class="card-text"></p>
-          <a href="https://www.incheon.go.kr/intro/index" target="_blank" class="btn btn-primary btn-sm">더보기</a>
+          <a href="https://www.incheon.go.kr/intro/index" target="_blank" class="button">더보기</a>
         </div>
       </div>
     </div>
@@ -94,7 +144,7 @@
         </div>
         <div class="card-body">
           <p id="gwangju" class="card-text"></p>
-          <a href="https://www.gwangju.go.kr/" target="_blank" class="btn btn-primary btn-sm">더보기</a>
+          <a href="https://www.gwangju.go.kr/" target="_blank" class="button">더보기</a>
         </div>
       </div>
     </div>
@@ -106,7 +156,7 @@
         </div>
         <div class="card-body">
           <p id="daejeon" class="card-text"></p>
-          <a href="https://www.daejeon.go.kr/corona19/index.do" target="_blank" class="btn btn-primary btn-sm">더보기</a>
+          <a href="https://www.daejeon.go.kr/corona19/index.do" target="_blank" class="button">더보기</a>
         </div>
       </div>
     </div>
@@ -118,7 +168,7 @@
         </div>
         <div class="card-body">
           <p id="ulsan" class="card-text"></p>
-          <a href="http://www.ulsan.go.kr/corona.jsp" target="_blank" class="btn btn-primary btn-sm">더보기</a>
+          <a href="http://www.ulsan.go.kr/corona.jsp" target="_blank" class="button">더보기</a>
         </div>
       </div>
     </div>
@@ -130,7 +180,7 @@
         </div>
         <div class="card-body">
           <p id="sejong" class="card-text"></p>
-          <a href="https://www.sejong.go.kr/bbs/R3273/list.do?cmsNoStr=17465" target="_blank" class="btn btn-primary btn-sm">더보기</a>
+          <a href="https://www.sejong.go.kr/bbs/R3273/list.do?cmsNoStr=17465" target="_blank" class="button">더보기</a>
         </div>
       </div>
     </div>
@@ -142,7 +192,7 @@
         </div>
         <div class="card-body">
           <p id="gyeonggi" class="card-text"></p>
-          <a href="https://www.gg.go.kr/contents/contents.do?ciIdx=1150&menuId=2909" target="_blank" class="btn btn-primary btn-sm">더보기</a>
+          <a href="https://www.gg.go.kr/contents/contents.do?ciIdx=1150&menuId=2909" target="_blank" class="button">더보기</a>
         </div>
       </div>
     </div>
@@ -154,7 +204,7 @@
         </div>
         <div class="card-body">
           <p id="gangwon" class="card-text"></p>
-          <a href="http://www.provin.gangwon.kr/covid-19.html" target="_blank" class="btn btn-primary btn-sm">더보기</a>
+          <a href="http://www.provin.gangwon.kr/covid-19.html" target="_blank" class="button">더보기</a>
         </div>
       </div>
     </div>
@@ -166,7 +216,7 @@
         </div>
         <div class="card-body">
           <p id="chungbuk" class="card-text"></p>
-          <a href="http://www1.chungbuk.go.kr/intro/index.html" target="_blank" class="btn btn-primary btn-sm">더보기</a>
+          <a href="http://www1.chungbuk.go.kr/intro/index.html" target="_blank" class="button">더보기</a>
         </div>
       </div>
     </div>
@@ -178,7 +228,7 @@
         </div>
         <div class="card-body">
           <p id="chungnam" class="card-text"></p>
-          <a href="http://www.chungnam.go.kr/coronaStatus.do" target="_blank" class="btn btn-primary btn-sm">더보기</a>
+          <a href="http://www.chungnam.go.kr/coronaStatus.do" target="_blank" class="button">더보기</a>
         </div>
       </div>
     </div>
@@ -190,7 +240,7 @@
         </div>
         <div class="card-body">
           <p id="jeonbuk" class="card-text"></p>
-          <a href="http://www.jeonbuk.go.kr/" target="_blank" class="btn btn-primary btn-sm">더보기</a>
+          <a href="http://www.jeonbuk.go.kr/" target="_blank" class="button">더보기</a>
         </div>
       </div>
     </div>
@@ -202,7 +252,7 @@
         </div>
         <div class="card-body">
           <p id="jeonnam" class="card-text"></p>
-          <a href="https://www.jeonnam.go.kr/coronaMainPage.do" target="_blank" class="btn btn-primary btn-sm">더보기</a>
+          <a href="https://www.jeonnam.go.kr/coronaMainPage.do" target="_blank" class="button">더보기</a>
         </div>
       </div>
     </div>
@@ -214,7 +264,7 @@
         </div>
         <div class="card-body">
           <p id="gyeongbuk" class="card-text"></p>
-          <a href="http://www.gb.go.kr/Main/index.html" target="_blank" class="btn btn-primary btn-sm">더보기</a>
+          <a href="http://www.gb.go.kr/Main/index.html" target="_blank" class="button">더보기</a>
         </div>
       </div>
     </div>
@@ -226,7 +276,7 @@
         </div>
         <div class="card-body">
           <p id="gyeongnam" class="card-text"></p>
-          <a href="http://xn--19-q81ii1knc140d892b.kr/main/main.do" target="_blank" class="btn btn-primary btn-sm">더보기</a>
+          <a href="http://xn--19-q81ii1knc140d892b.kr/main/main.do" target="_blank" class="button">더보기</a>
         </div>
       </div>
     </div>
@@ -238,7 +288,7 @@
         </div>
         <div class="card-body">
           <p id="jeju" class="card-text"></p>
-          <a href="https://www.jeju.go.kr/corona19.jsp" target="_blank" class="btn btn-primary btn-sm">더보기</a>
+          <a href="https://www.jeju.go.kr/corona19.jsp" target="_blank" class="button">더보기</a>
         </div>
       </div>
     </div>
@@ -250,10 +300,9 @@
         </div>
         <div class="card-body">
           <p id="quarantine" class="card-text"></p>
-          <a href="http://ncov.mohw.go.kr/" target="_blank" class="btn btn-primary btn-sm">더보기</a>
+          <a href="http://ncov.mohw.go.kr/" target="_blank" class="button">더보기</a>
         </div>
       </div>
-    </div>
 </div>
 
 <script>
@@ -414,9 +463,9 @@
       var x = event.clientX;
       var y = event.clientY;
 
-      tooltip.style.left = (x + 20) + "px";
-      tooltip.style.top = (y - 20) + "px";
-      tooltip.innerHTML = '<strong>'+countryId+'</strong>'+'<br>누적 확진확자: '+totalCase+'<br>전일대비 증감: ('+newCase+')'
+      tooltip.style.left = (x -350) + "px";
+      tooltip.style.top = (y -100) + "px";
+      tooltip.innerHTML = '<strong>'+countryId+'</strong>'+'<br>누적 확진확자: '+totalCase+'<br>전일대비 증감: (+'+newCase+')'
       tooltip.classList.add("active");
     }
         });
@@ -424,8 +473,8 @@
 
 
 </script>
-
-  </main>
+</div>
+</div>
   <%- include ('template/footer') %>
 </div>
 </body>
